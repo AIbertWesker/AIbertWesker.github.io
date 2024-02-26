@@ -1,11 +1,11 @@
 {
-    "short_name": "",
-    "name": "",
+    "short_name": "Konrad",
+    "name": "Klimek",
     "icons": [
     {
-    "src": "",
+    "src": "images/logo.jpg",
     "sizes": "144x144",
-    "type": "image/png"
+    "type": "image/jpg"
     },
     {
     "src": "",
