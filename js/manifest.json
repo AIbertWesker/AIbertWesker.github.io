@@ -11,8 +11,7 @@
     {
     "src": "images/logo2.png",
     "sizes": "144x144",
-    "type": "image/png",
-    "purpose": "any"
+    "type": "image/png"
     }
     ],
     "start_url": "/index.html",
