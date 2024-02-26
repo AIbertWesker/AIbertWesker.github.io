@@ -9,9 +9,10 @@
     "purpose": "any"
     },
     {
-    "src": "images/logo2.png",
+    "src": "images/logo2.webp",
     "sizes": "144x144",
-    "type": "image/webp"
+    "type": "image/webp",
+    "purpose": "any"
     }
     ],
     "start_url": "/index.html",
