@@ -3,7 +3,7 @@ const CACHE_NAME = 'nazwa';
 let filesToCache = [
 '/',
 '/style/style.css',
-'/images/logo.jpg'
+'/images/logo.png'
 ];
 self.addEventListener('install', function (evt) {
 evt.waitUntil(
