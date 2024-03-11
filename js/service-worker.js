@@ -2,10 +2,6 @@ const CACHE_NAME = 'NazwaCache-u';
 // List of files which are store in cache.
 let filesToCache = [
 '/',
-'/style/style.css',
-'/images/logo.png',
-'/js/service-worker.js',
-'/js/manifest.json'
 ];
 
 self.addEventListener('install', function (evt) {
@@ -32,7 +28,6 @@ self.addEventListener('fetch', function (evt) {
 
             return fetch(evt.request).then(function (response) {
                 if (!isSuccessful(response)) {
-                    alert('you are offline');
                     return response;
                 }
                 caches.open(CACHE_NAME).then(function (cache) {
