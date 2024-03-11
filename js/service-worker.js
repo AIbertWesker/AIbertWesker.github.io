@@ -15,7 +15,6 @@ self.addEventListener('install', function (evt) {
     }));
 });
 
-
 function isSuccessful(response) {
     return response &&
     response.status === 200 &&
