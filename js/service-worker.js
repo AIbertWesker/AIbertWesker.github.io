@@ -39,6 +39,14 @@ self.addEventListener('fetch', function (event) {
         if (response) {
             return response; // Cache hit
         }
+
+        var online = navigator.onLine;
+
+                if (online) {
+                    // Jestesmy offline, więc wyświetl alert
+                    alert("Jesteś offline! Nie można załadować tego zasobu.");
+                }
+
         return fetch(event.request.clone())
         .then(function (response) {
             if (!isSuccessful(response)) {
