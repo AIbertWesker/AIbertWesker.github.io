@@ -43,7 +43,6 @@ self.addEventListener('fetch', function (event) {
         return fetch(event.request.clone())
         .then(function (response) {
             if (!isSuccessful(response)) {
-                alert("jestes offline")
                 return response;
             }
             caches.open(CACHE_NAME)
