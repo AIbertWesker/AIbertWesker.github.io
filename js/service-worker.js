@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nazwa';
+const CACHE_NAME = 'NazwaCache-u';
 // List of files which are store in cache.
 let filesToCache = [
 '/',
