@@ -32,6 +32,7 @@ self.addEventListener('fetch', function (evt) {
 
             return fetch(evt.request).then(function (response) {
                 if (!isSuccessful(response)) {
+                    alert('you are offline');
                     return response;
                 }
                 caches.open(CACHE_NAME).then(function (cache) {
