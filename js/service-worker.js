@@ -2,16 +2,17 @@ const CACHE_NAME = 'NazwaCache-u';
 // List of files which are store in cache.
 let filesToCache = [
 '/',
+'/index.html',
 '/style/style.css',
 '/images/logo.png',
 ];
 
-self.addEventListener('install', function (evt) {
-    evt.waitUntil(
+self.addEventListener('install', function (event) {
+    event.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
         return cache.addAll(filesToCache);
         }).catch(function (err) {
-        //console.error(err);
+        console.error(err);
     }));
 });
 
@@ -21,19 +22,18 @@ function isSuccessful(response) {
     response.type === 'basic';
 }
 
-self.addEventListener('fetch', function (evt) {
-    evt.respondWith(
-        caches.match(evt.request).then(function (response) {
+self.addEventListener('fetch', function (event) {
+    event.respondWith(
+        caches.match(event.request).then(function (response) {
             if (response) {
                 return response; // Cache hit
             }
-
-            return fetch(evt.request).then(function (response) {
+            return fetch(event.request).then(function (response) {
                 if (!isSuccessful(response)) {
                     return response;
                 }
                 caches.open(CACHE_NAME).then(function (cache) {
-                    cache.put(evt.request, response.clone());
+                    cache.put(event.request, response.clone());
                 });
                 return response;
             });

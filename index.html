@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Cache-control" content="public">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -8,7 +9,6 @@
 </head>
 <body>
     <p>Cache testy</p>
-
     <script>
         const PATH = 'js/service-worker.js';
         let isServiceWorkersSupport = ('serviceWorker' in navigator);
@@ -16,7 +16,7 @@
         console.log('Will service worker register?');
         navigator.serviceWorker.register(PATH).then(function () {
         console.log("Yes it did.");
-        }).catch(function (err) {
+        }).catch(function (err) { 
         console.log("No it didn't. This happened: ", err)
         });
         }
@@ -27,7 +27,7 @@
     <p><button onclick="getMic()">Take Mic!</button></p>
     <p><img id="imageTag" width="250" height="250"></p> 
     <script src="/js/camera.js"></script>   
-    <script src="/js/mic.js"></script>   
+    <script src="/js/mic.js"></script>     
 
     <div style="background-image: url('/images/tv.png');background-repeat: no-repeat; width: 350px; height: 250px;background-size: contain;">
         <div>

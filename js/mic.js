@@ -2,7 +2,7 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || window.webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-var colors = [ 'aqua' , 'azure' , 'beige', 'bisque', 'black', 'blue', 'brown', 'chocolate', 'coral', 'crimson', 'cyan', 'fuchsia', 'ghostwhite', 'gold', 'goldenrod', 'gray', 'green', 'indigo', 'ivory', 'khaki', 'lavender', 'lime', 'linen', 'magenta', 'maroon', 'moccasin', 'navy', 'olive', 'orange', 'orchid', 'peru', 'pink', 'plum', 'purple', 'red', 'salmon', 'sienna', 'silver', 'snow', 'tan', 'teal', 'thistle', 'tomato', 'turquoise', 'violet', 'white', 'yellow'];
+var colors = ['policja', 'straż miejska', 'treder'];
 
 var recognition = new SpeechRecognition();
 if (SpeechGrammarList) {
@@ -14,7 +14,7 @@ if (SpeechGrammarList) {
   recognition.grammars = speechRecognitionList;
 }
 recognition.continuous = false;
-recognition.lang = 'en-US';
+recognition.lang = 'pl-PL';
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
@@ -36,7 +36,14 @@ function getMic() {
 
 recognition.onresult = function(event) {
   var color = event.results[0][0].transcript;
+  switch(color){
+    case 'straż pożarna': color = 'red'; break;
+    case 'straż miejska': color = 'black'; break;
+    case 'policja': color = 'blue'; break;
+    case 'treder' : color = 'pink'; break;
+  }
   bg.style.backgroundColor = color;
+  console.log(color)
   console.log('Confidence: ' + event.results[0][0].confidence);
 }
 
