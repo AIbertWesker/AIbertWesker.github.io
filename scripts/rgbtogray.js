@@ -67,3 +67,21 @@ function changepic(){
 
         img.src = e.target.result;
 };
+
+function checkAttributeChange() {
+    const imgElement = document.getElementById('imagePreview');
+    const initialSrc = imgElement.src;
+
+    setInterval(() => {
+        if (imgElement.src !== initialSrc) {
+            initialSrc = imgElement.src;
+            changepic()
+        }
+    }, 1000);
+}
+
+checkAttributeChange();
+
+setTimeout(() => {
+    document.getElementById('imagePreview').src = '';
+}, 2000);
