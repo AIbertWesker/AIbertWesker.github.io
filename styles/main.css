@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #0d0f1e, #792a42);
+    height: calc(100vh);
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left-div, .right-div {
+    width: 45%;
+    background-color: #ddd;
+    margin: 10px;
+    padding: 20px;
+    max-height: 30%;
+    height: 30%;
+}
+
+.img-to-show{
+    width:100%;
+    max-width:100%;
+    max-height: calc(74vh);
+}
+.indexdiv{
+    background-color: transparent;
+    color: #fff;
+}
+a:hover {
+    background-color: #312529;
+  }
+
+.top-div {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:transparent;
+    padding: 20px;
+    border-radius: 10px;
+    margin-inline: 10%;
+}
+
+.matrixtabel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+.matrixtabel td, .matrixtabel th {
+    padding: 5px;
+    text-align: center;
+}
+.matrixtabel input[type="number"] {
+    width: 50px;
+    text-align: center;
+}
+.matrixtabel h2 {
+    margin: 0;
+}

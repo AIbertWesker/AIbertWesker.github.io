@@ -22,13 +22,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="convolution.html">Convolution</a>
+                            <a class="nav-link text-light">Konwolucja</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light">FFT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="rgbtogray.html">RGB to Gray</a>
+                            <a class="nav-link text-light">Gray</a>
                         </li>
                     </ul>
                 </div>
@@ -36,29 +36,26 @@
         </nav>
     </header>
 
-    <div class="top-div indexdiv" style="background-color: transparent;">
-        <object data="img/logo_vector.svg" style="width: 20vh; height: auto;"></object>
+    <div class="top-div">
+        <button id="fileButton" class="btn btn-dark">Wybierz obraz</button>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        <button type="button" class="btn btn-dark" style="margin-left: 10px;">Turn on camera</button>
     </div>
-    <div class="top-div indexdiv"
-        style="display: grid; justify-items: center; align-items: center; text-align: center;">
-        <h2>Image Manipulation</h2>
-        <h4>This is my simple Image Manipulation website for assigment. <br>
-            Whole website was made using HTML, CSS and JS.<br>
-            Bootstrap was also included.
-        </h4><br>
-        <h4>Currently it provides:
-            <ul>
-                <li>RGB to Gray</li>
-                <li>Convolution 3x3</li>
-                <li>FFT</li>
-            </ul>
-        </h4>
+    <div class="container">
+        <div class="left-div"> 
+            <img id="imagePreview" src="img/tes.jpg" class="img-to-show" alt="Input Image"> 
+        </div>
+        <div class="right-div">
+            <img id="imageAfter" src="img/tes.jpg" class="img-to-show" alt="Output Image"> 
+        </div>
     </div>
 
     <footer style="background-color: #212529">
         &copy; 2024 - AIbert - <a>Privacy</a>
     </footer>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <!-- <script src="scripts/transforms.js"></script> -->
+    <script src="scripts/convolucja.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <title>Image Manipulation</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <img src="./img/logo_vector.svg" alt="Logo vector" width="40px" height="40px" />
+                <a class="navbar-brand" href="index.html">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="convolution.html">Convolution</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light">FFT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="rgbtogray.html">RGB to Gray</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="top-div">
+        <table style="margin-right: 10px;">
+            <tr>
+                <td>
+                    <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="bias">Bias:</label>
+                        <input type="number" id="bias" class="form-control" max="99" min="-99" value="0" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="factor">Factor:</label>
+                        <input type="number" id="factor" class="form-control" max="99" min="-99" value="2" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table class="matrixtabel">
+            <tr>
+                <td colspan="3">
+                    <h2>Matrix filtru</h2>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="number" id="input1" max="99" min="-99" value="-2"></td>
+                <td><input type="number" id="input2" max="99" min="-99" value="-1"></td>
+                <td><input type="number" id="input3" max="99" min="-99" value="0"></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="input4" max="99" min="-99" value="-1"></td>
+                <td><input type="number" id="input5" max="99" min="-99" value="1"></td>
+                <td><input type="number" id="input6" max="99" min="-99" value="1"></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="input7" max="99" min="-99" value="0"></td>
+                <td><input type="number" id="input8" max="99" min="-99" value="1"></td>
+                <td><input type="number" id="input9" max="99" min="-99" value="2"></td>
+            </tr>
+        </table>
+        <button id="fileButton" class="btn btn-dark" style="margin-left: 10px;">Import image</button>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        <button type="button" class="btn btn-dark" onclick="applyConvolution()"
+            style="margin-left: 10px;">Convolute</button>
+
+        <button type="button" class="btn btn-dark" onclick="getStream()"
+            style="margin-left: 10px;margin-right: 10px;">Turn on camera</button>
+
+        <button style="display: none;" id="photobutton" onclick="takePhoto()" type="button" class="btn btn-dark"
+            style="margin-left: 10px;">Take a picture</button>
+
+        <video style="display: none" style="height: 180px; width: 240px;margin-left: 50px;margin-top: 25px;"></video>
+
+    </div>
+    <div class="container">
+        <div class="left-div">
+            <img id="imagePreview" src="img/tes.jpg" class="img-to-show" alt="Input Image"
+                style="max-height: calc(58vh);">
+        </div>
+        <div class="right-div">
+            <img id="imageAfter" src="img/tes.jpg" class="img-to-show" alt="Output Image"
+                style="max-height: calc(58vh);">
+        </div>
+    </div>
+
+    <footer style="background-color: #212529">
+        &copy; 2024 - AIbert - <a>Privacy</a>
+    </footer>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="scripts/convolucja.js"></script>
+    <script src="scripts/camera.js"></script>
+</body>
+
+</html>
