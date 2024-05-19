@@ -37,50 +37,10 @@
     </header>
 
     <div class="top-div">
-        <table style="margin-right: 10px;">
-            <tr>
-                <td>
-                    <div data-mdb-input-init class="form-outline">
-                        <label class="form-label" for="bias">Bias:</label>
-                        <input type="number" id="bias" class="form-control" max="99" min="-99" value="60" />
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div data-mdb-input-init class="form-outline">
-                        <label class="form-label" for="factor">Factor:</label>
-                        <input type="number" id="factor" class="form-control" max="99" min="-99" value="2" />
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <table class="matrixtabel">
-            <tr>
-                <td colspan="3">
-                    <h2>Matrix filtru</h2>
-                </td>
-            </tr>
-            <tr>
-                <td><input type="number" id="input1" max="99" min="-99" value="-2"></td>
-                <td><input type="number" id="input2" max="99" min="-99" value="-1"></td>
-                <td><input type="number" id="input3" max="99" min="-99" value="0"></td>
-            </tr>
-            <tr>
-                <td><input type="number" id="input4" max="99" min="-99" value="-1"></td>
-                <td><input type="number" id="input5" max="99" min="-99" value="0"></td>
-                <td><input type="number" id="input6" max="99" min="-99" value="1"></td>
-            </tr>
-            <tr>
-                <td><input type="number" id="input7" max="99" min="-99" value="0"></td>
-                <td><input type="number" id="input8" max="99" min="-99" value="1"></td>
-                <td><input type="number" id="input9" max="99" min="-99" value="2"></td>
-            </tr>
-        </table>
         <button id="fileButton" class="btn btn-dark" style="margin-left: 10px;">Import image</button>
         <input type="file" id="fileInput" accept="image/*" style="display: none;">
-        <button type="button" class="btn btn-dark" onclick="applyConvolution()"
-            style="margin-left: 10px;">Convolute</button>
+        <button type="button" class="btn btn-dark" onclick="applyFFT()"
+            style="margin-left: 10px;">FFT</button>
 
         <button type="button" class="btn btn-dark" onclick="getStream()"
             style="margin-left: 10px;margin-right: 10px;">Turn on camera</button>
@@ -93,12 +53,13 @@
     </div>
     <div class="container">
         <div class="left-div">
-            <img id="imagePreview" src="img/tes.jpg" class="img-to-show" alt="Input Image"
+            <img id="imagePreview"  class="img-to-show" alt="Input Image"
                 style="max-height: calc(58vh);">
         </div>
         <div class="right-div">
-            <img id="imageAfter" src="img/tes.jpg" class="img-to-show" alt="Output Image"
+            <img id="imageAfter"  class="img-to-show" alt="Output Image"
                 style="max-height: calc(58vh);">
+                <canvas id="Spectrum" width="256" height="256"></canvas>
         </div>
     </div>
 
@@ -106,7 +67,10 @@
         &copy; 2024 - AIbert - <a>Privacy</a>
     </footer>
     <script src="bootstrap/js/bootstrap.js"></script>
-    <script src="scripts/convolucja.js"></script>
+    <script src="scripts/FT.js"></script>
+    <script src="scripts/filter.js"></script>
+    <script src="scripts/spectrum.js"></script>
+    <script src="scripts/fft.js"></script>
     <script src="scripts/camera.js"></script>
 </body>
 
