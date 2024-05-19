@@ -7,28 +7,27 @@ function applyFFT() {
     const imageAfter = document.getElementById('imageAfter');
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
+    const redProcent = parseInt(document.getElementById('redprocent').value, 10);
+    const greenProcent = parseInt(document.getElementById('greenprocent').value, 10);
+    const blueProcent = parseInt(document.getElementById('blueprocent').value, 10);
 
-    imagePreview.naturalWidth = 512;
-    imagePreview.naturalHeight = 512;
 
     canvas.width = imagePreview.naturalWidth;
     canvas.height = imagePreview.naturalHeight;
     ctx.drawImage(imagePreview, 0, 0);
 
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const src = imageData.data;
+    const data = imageData.data;
+    const width = imageData.width;
+    const height = imageData.height;
 
-    var w = closestPowerOfTwo(imageData.width),
-        h = imageData.height,
-        re = [],
-        im = [];
+    for (let i = 0; i < data.length; i += 4) {
+        data[i] = Math.max(data[i] * redProcent/100,0); // Red
+        data[i + 1] = Math.max(data[i+1] * greenProcent/100,0); // Green
+        data[i + 2] = Math.max(data[i+2] * blueProcent/100,0); // Blue
+    }
 
-    FFT.init(w);
-    FrequencyFilter.init(w);
-    SpectrumViewer.init(ctx);
-    SpectrumViewer.render(re, im);
-
-    ctx.putImageData(imageData, 0, 0, 0, 0, w, h);
+    ctx.putImageData(imageData, 0, 0, 0, 0, imageData.width, imageData.height);
     imageAfter.src = canvas.toDataURL();
 };
 
