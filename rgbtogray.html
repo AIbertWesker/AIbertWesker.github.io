@@ -25,7 +25,7 @@
                             <a class="nav-link text-light" href="convolution.html">Convolution</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light"  href="Colorchange.html">Color mixer</a>
+                            <a class="nav-link text-light" href="Colorchange.html">Color mixer</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="rgbtogray.html">RGB to Gray</a>
@@ -39,7 +39,14 @@
     <div class="top-div">
         <button id="fileButton" class="btn btn-dark">Wybierz obraz</button>
         <input type="file" id="fileInput" accept="image/*" style="display: none;">
-        <button type="button" class="btn btn-dark" style="margin-left: 10px;">Turn on camera</button>
+        <button type="button" class="btn btn-dark" onclick="getStream()"
+            style="margin-left: 10px;margin-right: 10px;">Turn on camera</button>
+
+        <button style="display: none;" id="photobutton" onclick="takePhoto()" type="button" class="btn btn-dark"
+            style="margin-left: 10px;">Take a picture</button>
+
+        <video style="display: none" style="height: 180px; width: 240px;margin-left: 50px;margin-top: 25px;"></video>
+
     </div>
     <div class="container">
         <div class="left-div">
@@ -54,6 +61,7 @@
         &copy; 2024 - AIbert - <a>Privacy</a>
     </footer>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="scripts/camera.js"></script>
     <script src="scripts/rgbtogray.js"></script>
 </body>
 

@@ -22,9 +22,9 @@ function applyFFT() {
     const height = imageData.height;
 
     for (let i = 0; i < data.length; i += 4) {
-        data[i] = Math.max(data[i] * redProcent/100,0); // Red
-        data[i + 1] = Math.max(data[i+1] * greenProcent/100,0); // Green
-        data[i + 2] = Math.max(data[i+2] * blueProcent/100,0); // Blue
+        data[i] = Math.max(data[i] * redProcent / 100, 0); // Red
+        data[i + 1] = Math.max(data[i + 1] * greenProcent / 100, 0); // Green
+        data[i + 2] = Math.max(data[i + 2] * blueProcent / 100, 0); // Blue
     }
 
     ctx.putImageData(imageData, 0, 0, 0, 0, imageData.width, imageData.height);

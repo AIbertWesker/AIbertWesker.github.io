@@ -35,7 +35,7 @@ function getStream() {
         alert('Error: ' + err);
     });
     const element = document.getElementById('photobutton');
-        element.style.display = 'block';
+    element.style.display = 'block';
 }
 
 function takePhoto() {
