@@ -55,7 +55,6 @@ function takePhoto() {
         .then(blob => {
             var theImageTag = document.getElementById("imagePreview");
             theImageTag.src = URL.createObjectURL(blob);
-            applyConvolution();
         })
         .catch(err => alert('Error: ' + err));
 }

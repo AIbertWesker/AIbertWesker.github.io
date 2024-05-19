@@ -40,8 +40,7 @@ document.getElementById('fileInput').addEventListener('change', function (event)
     reader.readAsDataURL(file);
 });
 
-document.getElementById('imagePreview').addEventListener('change', function (event) {
-
+function changepic(){
         const imagePreview = document.getElementById('imagePreview');
         const imageAfter = document.getElementById('imageAfter');
         const canvas = document.createElement('canvas');
@@ -67,4 +66,4 @@ document.getElementById('imagePreview').addEventListener('change', function (eve
             imageAfter.src = canvas.toDataURL();
 
         img.src = e.target.result;
-});
+};
