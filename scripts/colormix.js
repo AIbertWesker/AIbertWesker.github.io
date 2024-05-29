@@ -6,7 +6,7 @@ document.getElementById('selectColor').addEventListener('change', function (even
 
     const selectedValue = event.target.value;
 
-    fetch('data/matrix.json')
+    fetch('/data/matrix.json')
         .then(response => response.json())
         .then(data => {
             const inputs = ["redprocent", "greenprocent", "blueprocent"]
