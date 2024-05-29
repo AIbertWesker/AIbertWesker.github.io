@@ -51,6 +51,18 @@
                     <div data-mdb-input-init class="form-outline">
                         <label class="form-label" for="factor">Factor:</label>
                         <input type="number" id="factor" class="form-control" max="99" min="-99" value="2" />
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="selectMatrix">Matrix template:</label>
+                        <select class="form-select" aria-label="Default select example" id="selectMatrix">
+                            <option selected value="1">Emboss</option>
+                            <option value="2">HighPass</option>
+                            <option value="3">Edge Detection</option>
+                        </select>
                     </div>
                 </td>
             </tr>
@@ -77,6 +89,7 @@
                 <td><input type="number" id="input9" max="99" min="-99" value="2"></td>
             </tr>
         </table>
+
         <button id="fileButton" class="btn btn-dark" style="margin-left: 10px;">Import image</button>
         <input type="file" id="fileInput" accept="image/*" style="display: none;">
         <button type="button" class="btn btn-dark" onclick="applyConvolution()"
@@ -93,12 +106,10 @@
     </div>
     <div class="container">
         <div class="left-div">
-            <img id="imagePreview" src="img/tes.jpg" class="img-to-show" alt="Input Image"
-                style="max-height: calc(58vh);">
+            <img id="imagePreview" src="" class="img-to-show" alt="Input Image" style="max-height: calc(58vh);">
         </div>
         <div class="right-div">
-            <img id="imageAfter" src="img/tes.jpg" class="img-to-show" alt="Output Image"
-                style="max-height: calc(58vh);">
+            <img id="imageAfter" src="" class="img-to-show" alt="Output Image" style="max-height: calc(58vh);">
         </div>
     </div>
 

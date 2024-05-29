@@ -2,6 +2,45 @@ function closestPowerOfTwo(n) {
     return Math.pow(2, Math.floor(Math.log(n) / Math.log(2)));
 }
 
+document.getElementById('selectColor').addEventListener('change', function (event) {
+
+    const selectedValue = event.target.value;
+
+    fetch('data/matrix.json')
+        .then(response => response.json())
+        .then(data => {
+            const inputs = ["redprocent", "greenprocent", "blueprocent"]
+            const colors = data.colors;
+            const orange = colors.Orange
+            const purple = colors.Purple
+            const yellow = colors.Yellow
+            const cyan = colors.Cyan
+
+            let colorToIterate
+
+            switch (selectedValue) {
+                case "1":
+                    colorToIterate = orange;
+                    break;
+                case "2":
+                    colorToIterate = purple;
+                    break;
+                case "3":
+                    colorToIterate = yellow;
+                    break;
+                case "4":
+                    colorToIterate = cyan;
+                    break;
+            }
+
+            for (i = 0; i < colorToIterate.length; i++) {
+                document.getElementById(inputs[i]).value = colorToIterate[i]
+            }
+            //console.log(colorToIterate.length);
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+});
+
 function applyFFT() {
     const imagePreview = document.getElementById('imagePreview');
     const imageAfter = document.getElementById('imageAfter');

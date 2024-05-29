@@ -10,6 +10,39 @@ document.getElementById('fileButton').addEventListener('click', function () {
     document.getElementById('fileInput').click();
 });
 
+document.getElementById('selectMatrix').addEventListener('change', function (event) {
+
+    const selectedValue = event.target.value;
+
+    fetch('data/matrix.json')
+        .then(response => response.json())
+        .then(data => {
+            const matrixes = data.matrixes;
+            const emboss = matrixes.Emboss;
+            const highPass = matrixes.HighPass;
+            const edgeDetection = matrixes.EdgeDetection;
+            let matrixToIterate
+
+            switch (selectedValue) {
+                case "1":
+                    matrixToIterate = emboss;
+                    break;
+                case "2":
+                    matrixToIterate = highPass;
+                    break;
+                case "3":
+                    matrixToIterate = edgeDetection;
+                    break;
+            }
+
+            for (i = 0; i < matrixToIterate.length; i++) {
+                document.getElementById('input' + (i+1)).value = matrixToIterate[i]
+            }
+            //console.log(matrixToIterate.length);
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+});
+
 document.getElementById('fileInput').addEventListener('change', function (event) {
     const file = event.target.files[0];
     const reader = new FileReader();
