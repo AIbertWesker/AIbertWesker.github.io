@@ -14,7 +14,7 @@ document.getElementById('selectMatrix').addEventListener('change', function (eve
 
     const selectedValue = event.target.value;
 
-    fetch('/data/matrix.json')
+    fetch('./data/selects.json')
         .then(response => response.json())
         .then(data => {
             const matrixes = data.matrixes;
